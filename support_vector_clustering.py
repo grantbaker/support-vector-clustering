@@ -25,7 +25,7 @@ class SupportVectorClustering():
     def find_beta(self):
         beta = cvx.Variable(self.N)
         objective = cvx.Maximize(cvx.sum(beta)-cvx.quad_form(beta, self.km ))
-        constraints = [0 <= beta,beta<=self.C]
+        constraints = [0 <= beta,beta<=self.C,cvx.sum(beta)==1]
         prob = cvx.Problem(objective, constraints)
         result = prob.solve()
         self.beta = beta.value

@@ -192,7 +192,7 @@ class ScalableSupportVectorClustering():
 #             print(eps_eq_map)
 #             print(clusters_eqs)
             cluster = clusters_eqs[eps_eq_map[eps_ind]]
-#             clusters[cluster].append(eps_ind)
+            clusters[cluster].append(eps_ind)
             ind_to_cluster[eps_ind] = cluster
         
         for i in range(xs.shape[0]):
@@ -204,7 +204,7 @@ class ScalableSupportVectorClustering():
                 clusters[ind_to_cluster[close]].append(i)
             
 #         print(clusters)
-        clusters[0] = B_eps_inds
+#         clusters[0] = B_eps_inds
         
         self._meta_ = (B_eps_inds, ind_to_cluster, E)
     
